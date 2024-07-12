@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import httpClient from "../services/http-client";
-import { AxiosError, CanceledError } from "axios";
+import { AxiosError, AxiosRequestConfig, CanceledError } from "axios";
+import useHook from "./generic-hook";
+import { Genre } from "../data";
 
 export interface Platform {
   id: number,
@@ -15,36 +17,8 @@ export interface Game {
   parent_platforms: { platform: Platform }[]
   metacritic: number
 }
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
 
-const useGamesHook = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState('');
-  const [isloading, setLoading] = useState(false);
-  const controller = new AbortController();
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      setLoading(true)
-      try {
-        const response = await httpClient.get<FetchGamesResponse>('/games', { signal: controller.signal });
-        setGames(response.data.results);
 
-        return () => controller.abort();
-      } catch (err) {
-        if (err instanceof CanceledError) return;
-        setError((err as AxiosError).message);
-      } finally {
-        setLoading(false)
-      }
-    };
-    fetchGames();
-  }, []);
-
-  return { games, error , isloading}
-}
-
+const useGamesHook = (selectedGenre: Genre | null) => useHook<Game>("/games", { params: { genre: selectedGenre?.id } }, [selectedGenre?.id])
 export default useGamesHook;

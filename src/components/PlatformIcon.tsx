@@ -33,9 +33,9 @@ export default function PlatformIcon({ platforms }: Props) {
 	return (
 		<>
 			<HStack marginY={2}>
-				{platforms.map((plaform) => (
+				{platforms.map((platform) => (
 					// <Text>{plaform.name}</Text>
-					<Icon as={iconMaps[plaform.slug]} color="gray.500"/>
+					<Icon as={iconMaps[platform.slug]} color="gray.500" key={platform.id}/>
 				))}
 			</HStack>
 		</>

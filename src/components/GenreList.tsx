@@ -1,13 +1,47 @@
-import useGenresHook from "../hooks/genres-hook"
+import {
+	HStack,
+	List,
+	ListItem,
+	Image,
+	Text,
+	Spinner,
+	Button,
+} from '@chakra-ui/react';
+import useGenresHook from '../hooks/genres-hook';
+import getCroppedImageUrl from '../services/image-url';
+import { Genre } from '../data';
 
-export default function GenreList() {
-  const{genres, isloading, error}= useGenresHook()
-  return (
-    <>
-      <div>Genre list</div>
-      <ul>
-      {genres.map(g=> <li key={g.id}>{g.name}</li>)}
-      </ul>
-    </>
-  )
+interface Props {
+	onSelectedGrene: (genre: Genre) => void;
+}
+
+export default function GenreList({ onSelectedGrene }: Props) {
+	const { data, isloading, error } = useGenresHook();
+	if (error) return null;
+	if (isloading) return <Spinner />;
+	return (
+		<>
+			<List paddingY={'10px'}>
+				{data.map((g) => (
+					<ListItem key={g.id} marginY={2}>
+						<HStack>
+							<Image
+								boxSize={'32px'}
+								src={getCroppedImageUrl(g.image_background)}
+								borderRadius={8}
+							/>
+							<Button
+								variant={'link'}
+								fontSize={'lg'}
+								textAlign={'left'}
+								onClick={() => onSelectedGrene(g)}
+							>
+								{g.name}
+							</Button>
+						</HStack>
+					</ListItem>
+				))}
+			</List>
+		</>
+	);
 }

@@ -1,0 +1,39 @@
+# Node modules directory should be ignored because dependencies will be installed in the Docker image
+node_modules
+
+# NPM and Yarn lock files should be ignored if you're not using them, otherwise keep them to lock the versions
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Ignore local environment files
+.env
+
+# Ignore the Dockerfile itself if it's in the build context directory
+.dockerignore
+
+# Ignore Git directory
+.git
+.gitignore
+
+# Ignore any temporary or IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Ignore build artifacts or compiled files
+dist/
+build/
+
+# Ignore testing or coverage directories
+coverage/
+test-results/
+*.test.js
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
