@@ -6,17 +6,13 @@ import { NavBar } from '../components/NavBar';
 import { Genre, Platform } from '../data';
 import PlatformSelector from '../components/PlaformSelector';
 
-interface GameQuery {
+export interface GameQuery {
 	genre: Genre | null;
 	platform: Platform | null;
 }
 
 export default function AppLayout() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-	const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-		null,
-	);
 
 	return (
 		<>
@@ -46,12 +42,9 @@ export default function AppLayout() {
 						onPlaformSelected={(platform) =>
 							setGameQuery({ ...gameQuery, platform })
 						}
-						selectedPlatform={selectedPlatform}
-					/>
-					<GameGrid
-						selectedGenre={gameQuery?.genre}
 						selectedPlatform={gameQuery?.platform}
 					/>
+					<GameGrid gameQuery={gameQuery} />
 				</GridItem>
 			</Grid>
 		</>

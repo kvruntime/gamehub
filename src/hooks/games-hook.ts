@@ -1,4 +1,5 @@
 import { Genre, Platform } from "../data";
+import { GameQuery } from "../layouts/AppLayout";
 import useHook from "./generic-hook";
 
 
@@ -13,6 +14,6 @@ export interface Game {
 
 
 
-const useGamesHook = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useHook<Game>("/games", { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-  [selectedGenre?.id, selectedPlatform?.id])
+const useGamesHook = (gameQuery:GameQuery|null) => useHook<Game>("/games", { params: { genres: gameQuery?.genre?.id, platforms: gameQuery?.platform?.id } },
+  [gameQuery?.genre?.id, gameQuery?.platform?.id])
 export default useGamesHook;
