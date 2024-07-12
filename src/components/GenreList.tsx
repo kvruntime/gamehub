@@ -3,7 +3,6 @@ import {
 	List,
 	ListItem,
 	Image,
-	Text,
 	Spinner,
 	Button,
 } from '@chakra-ui/react';
@@ -13,9 +12,10 @@ import { Genre } from '../data';
 
 interface Props {
 	onSelectedGrene: (genre: Genre) => void;
+	selectedGenre: Genre | null;
 }
 
-export default function GenreList({ onSelectedGrene }: Props) {
+export default function GenreList({ onSelectedGrene, selectedGenre }: Props) {
 	const { data, isloading, error } = useGenresHook();
 	if (error) return null;
 	if (isloading) return <Spinner />;
@@ -31,6 +31,7 @@ export default function GenreList({ onSelectedGrene }: Props) {
 								borderRadius={8}
 							/>
 							<Button
+								fontWeight={selectedGenre?.id === g?.id ? 'bold' : 'normal'}
 								variant={'link'}
 								fontSize={'lg'}
 								textAlign={'left'}

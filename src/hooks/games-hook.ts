@@ -1,14 +1,7 @@
-import { useEffect, useState } from "react";
-import httpClient from "../services/http-client";
-import { AxiosError, AxiosRequestConfig, CanceledError } from "axios";
+import { Genre, Platform } from "../data";
 import useHook from "./generic-hook";
-import { Genre } from "../data";
 
-export interface Platform {
-  id: number,
-  name: string,
-  slug: string
-}
+
 
 export interface Game {
   id: number;
@@ -20,5 +13,5 @@ export interface Game {
 
 
 
-const useGamesHook = (selectedGenre: Genre | null) => useHook<Game>("/games", { params: { genre: selectedGenre?.id } }, [selectedGenre?.id])
+const useGamesHook = (selectedGenre: Genre | null) => useHook<Game>("/games", { params: { genres: selectedGenre?.id } }, [selectedGenre?.id])
 export default useGamesHook;

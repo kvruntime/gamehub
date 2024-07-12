@@ -1,10 +1,10 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
-import { NavBar } from '../components/NavBar';
+import { useState } from 'react';
 import GameGrid from '../components/GameGrid';
 import GenreList from '../components/GenreList';
-import { useState } from 'react';
+import { NavBar } from '../components/NavBar';
 import { Genre } from '../data';
-import useGamesHook from '../hooks/games-hook';
+import PlatformSelector from '../components/PlaformSelector';
 
 export default function AppLayout() {
 	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -31,10 +31,14 @@ export default function AppLayout() {
 				</GridItem>
 				<Show above="lg">
 					<GridItem area={'aside'} padding={5}>
-						<GenreList onSelectedGrene={updateSelectedGenre} />
+						<GenreList
+							onSelectedGrene={updateSelectedGenre}
+							selectedGenre={selectedGenre}
+						/>
 					</GridItem>
 				</Show>
 				<GridItem area={'main'}>
+					<PlatformSelector />
 					<GameGrid selectedGenre={selectedGenre} />
 				</GridItem>
 			</Grid>
