@@ -1,9 +1,8 @@
-import { HStack, Icon, Text } from '@chakra-ui/react';
+import { HStack, Icon } from '@chakra-ui/react';
 import { Platform } from '../hooks/games-hook';
 import {
 	FaWindows,
 	FaXbox,
-	FaBox,
 	FaApple,
 	FaLinux,
 	FaAndroid,
