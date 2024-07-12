@@ -1,6 +1,6 @@
 # Node modules directory should be ignored because dependencies will be installed in the Docker image
 node_modules
-
+.env*
 # NPM and Yarn lock files should be ignored if you're not using them, otherwise keep them to lock the versions
 npm-debug.log
 yarn-error.log

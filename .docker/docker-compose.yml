@@ -1,0 +1,10 @@
+services:
+  gamehub:
+    # image: gamehub:dev
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+    ports:
+      - 9090:8080
+    env_file:
+      - ../.env
