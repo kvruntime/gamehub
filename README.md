@@ -30,3 +30,7 @@ export default {
 ```bash
   docker build -f .docker/Dockerfile -t gamehub:dev .
 ```
+ghcr.io/username/repo:tag
+```bash
+  docker tag gamehub:dev ghcr.io/kvruntime/gamehub:dev 
+```

@@ -1,4 +1,4 @@
-import { Genre, Platform } from "../data";
+import { Platform } from "../data";
 import { GameQuery } from "../layouts/AppLayout";
 import useHook from "./generic-hook";
 
