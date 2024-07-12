@@ -13,5 +13,6 @@ export interface Game {
 
 
 
-const useGamesHook = (selectedGenre: Genre | null) => useHook<Game>("/games", { params: { genres: selectedGenre?.id } }, [selectedGenre?.id])
+const useGamesHook = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useHook<Game>("/games", { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+  [selectedGenre?.id, selectedPlatform?.id])
 export default useGamesHook;
