@@ -1,5 +1,5 @@
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
-import { FormEvent, useRef } from 'react';
+import { useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 interface Props {
