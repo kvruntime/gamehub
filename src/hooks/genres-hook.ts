@@ -1,14 +1,5 @@
-import { Genre } from "../data";
-import useHook from "./generic-hook";
+import genres from '../data/genres';
 
-// export interface Platform {
-//   id: number,
-//   name: string,
-//   slug: string
-// }
-
-
-
-
-const useGenresHook = () => useHook<Genre>("/genres");
+// const useGenresHook = () => useHook<Genre>("/genres");
+const useGenresHook = () => ({ data: genres, error: null, isloading: false });
 export default useGenresHook;

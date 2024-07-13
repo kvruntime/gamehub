@@ -13,6 +13,7 @@ export default function PlatformSelector({
 	selectedPlatform,
 }: Props) {
 	const { data } = usePlaformsHook();
+	if (!data) return null;
 	return (
 		<>
 			<Menu>

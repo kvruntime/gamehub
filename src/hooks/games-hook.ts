@@ -1,14 +1,7 @@
-import { Platform } from '../data';
-import { GameQuery } from '../layouts/AppLayout';
+import { Game, GameQuery } from '../data';
+
 import useHook from './generic-hook';
 
-export interface Game {
-	id: number;
-	name: string;
-	background_image: string;
-	parent_platforms: { platform: Platform }[];
-	metacritic: number;
-}
 
 const useGamesHook = (gameQuery: GameQuery | null) =>
 	useHook<Game>(

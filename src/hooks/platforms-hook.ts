@@ -1,6 +1,7 @@
-import { Platform } from "../data";
-import useHook from "./generic-hook";
-
+import { Platform } from '../data';
+import platforms from '../data/platforms';
+import useHook from './generic-hook';
 
 const usePlaformsHook = () => useHook<Platform>("/platforms/lists/parents")
-export default usePlaformsHook
+// const usePlaformsHook = () => ({ data: platforms, isLoading: true, error: null });
+export default usePlaformsHook;
