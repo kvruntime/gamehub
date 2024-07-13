@@ -6,20 +6,20 @@ import GameCardBox from './GameCardBox';
 import { GameQuery } from '../layouts/AppLayout';
 
 interface Props {
-	gameQuery: GameQuery| null;
+	gameQuery: GameQuery | null;
 }
 
 export default function GameGrid({ gameQuery }: Props) {
 	const { data, error, isloading } = useGamesHook(
 		// selectedGenre,
 		// selectedPlatform,
-		gameQuery
+		gameQuery,
 	);
 	const sekeletons = [1, 2, 3, 4, 5];
-	return (
-		<>
-			{error && <Text>{error}</Text>}
 
+	if (error) return <Text>{error}</Text>;
+
+	return (
 			<SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
 				{isloading &&
 					sekeletons.map((s) => (
@@ -33,6 +33,5 @@ export default function GameGrid({ gameQuery }: Props) {
 					</GameCardBox>
 				))}
 			</SimpleGrid>
-		</>
 	);
 }
