@@ -9,3 +9,9 @@ export interface Platform {
   name: string,
   slug: string
 }
+export interface GameQuery {
+	genre: Genre | null;
+	platform: Platform | null;
+	sortOrder: string | null;
+	searchGame: string | null;
+}
