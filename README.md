@@ -1,36 +1,32 @@
-# React + TypeScript + Vite
+# Gamehub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+React application built on top rawg.io data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## The Landing page
 
-- Configure the top-level `parserOptions` property like this:
+<div class="img-container">
+  <figure>
+  <figcaption>Dark version of the application</figcaption>
+  <img class="img" src="./screenshots/landing.png" width="50%"/>
+  </figure>
+  <figure>
+  <figcaption>Light version of the application</figcaption>
+  <img class="img" src="./screenshots/landing-light.png" width="50%"/>
+  </figure>
+</div>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-## How build image
+## How build docker image
 
 ```bash
   docker build -f .docker/Dockerfile -t gamehub:dev .
 ```
+
 ghcr.io/username/repo:tag
+
 ```bash
   docker tag gamehub:dev ghcr.io/kvruntime/gamehub:dev 
 ```
