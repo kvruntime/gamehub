@@ -22,7 +22,8 @@ React application built on top rawg.io data.
 ## How build docker image
 
 ```bash
-  docker build -f .docker/Dockerfile -t gamehub:dev .
+  docker build -f .docker/Dockerfile -t ghcr.io/kvruntime/gamehub:dev .
+  docker build -f .docker/Dockerfile.prod -t ghcr.io/kvruntime/gamehub:prod .
 ```
 
 ghcr.io/username/repo:tag
