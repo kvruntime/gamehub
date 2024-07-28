@@ -12,7 +12,9 @@ export default function PlatformSelector({
 	onPlaformSelected,
 	selectedPlatform,
 }: Props) {
+	// const { data } = usePlaformsHook();
 	const { data } = usePlaformsHook();
+	const plaforms=data?.results
 	if (!data) return null;
 	return (
 		<>
@@ -21,7 +23,7 @@ export default function PlatformSelector({
 					{selectedPlatform?.name || 'Platforms'}
 				</MenuButton>
 				<MenuList>
-					{data.map((platform) => (
+					{plaforms?.map((platform) => (
 						<MenuItem
 							key={platform.id}
 							onClick={() => onPlaformSelected(platform)}
