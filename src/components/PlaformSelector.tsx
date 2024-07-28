@@ -15,7 +15,8 @@ export default function PlatformSelector({
 	// const { data } = usePlaformsHook();
 	const { data } = usePlaformsHook();
 	const plaforms=data?.results
-	if (!data) return null;
+	if (!data) return <span>Plaforms(?)</span>;
+
 	return (
 		<>
 			<Menu>

@@ -3,7 +3,7 @@ import { FetchResponse } from "../data"
 import httpClient from "./http-client"
 
 export default class RawgClient<T> {
-  endpoint!: string
+  private endpoint!: string
   constructor(endpoint: string) { this.endpoint = endpoint }
 
   getAll = (requests?: AxiosRequestConfig) => {

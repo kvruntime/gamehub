@@ -1,7 +1,7 @@
 export interface Genre {
-  id: number;
-  name: string;
-  image_background: string
+	id: number;
+	name: string;
+	image_background: string
 }
 
 export interface Game {
@@ -10,15 +10,15 @@ export interface Game {
 	background_image: string;
 	parent_platforms: { platform: Platform }[];
 	metacritic: number;
-	rating_top:number
+	rating_top: number
 	// rating:number
 }
 
 
 export interface Platform {
-  id: number,
-  name: string,
-  slug: string
+	id: number,
+	name: string,
+	slug: string
 }
 export interface GameQuery {
 	genre: Genre | null;
@@ -28,6 +28,7 @@ export interface GameQuery {
 }
 
 export interface FetchResponse<T> {
-  count: number;
-  results: T[];
+	count: number;
+	results: T[];
+	next: string | null
 }

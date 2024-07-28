@@ -1,7 +1,8 @@
 import { FetchResponse, Game, GameQuery } from '../data';
+import httpClient from '../services/http-client';
 import RawgClient from '../services/rawg-client';
 
-import { useQuery } from "@tanstack/react-query"
+import { QueryFunction, useInfiniteQuery, useQuery } from "@tanstack/react-query"
 
 
 
@@ -25,22 +26,10 @@ import { useQuery } from "@tanstack/react-query"
 // 		],
 // 	);
 const rawgClient = new RawgClient<Game>("/games")
-const useGamesHook = (gameQuery: GameQuery | null) => useQuery<FetchResponse<Game>, Error, FetchResponse<Game>>({
-	queryKey: ["games"],
-	queryFn: () => rawgClient.getAll({
-		params: {
-			genres: gameQuery?.genre?.id,
-			platforms: gameQuery?.platform?.id,
-			ordering: gameQuery?.sortOrder,
-			search: gameQuery?.searchGame,
-		}
-	},
 
-	)
-})
 // const useGamesHook = (gameQuery: GameQuery | null) => useQuery<FetchResponse<Game>, Error, FetchResponse<Game>>({
 // 	queryKey: ["games", gameQuery],
-// 	queryFn: () => httpClient.get<FetchResponse<Game>>("/games",
+// 	queryFn: () => rawgClient.getAll(
 // 		{
 // 			params: {
 // 				genres: gameQuery?.genre?.id,
@@ -49,6 +38,24 @@ const useGamesHook = (gameQuery: GameQuery | null) => useQuery<FetchResponse<Gam
 // 				search: gameQuery?.searchGame,
 // 			},
 // 		},
-// 	).then(res => res.data)
+// 	)
 // })
+
+const useGamesHook = (gameQuery: GameQuery | null) => useInfiniteQuery<FetchResponse<Game>, Error>({
+	queryKey: ["game-query", gameQuery],
+	initialPageParam: 1,
+	queryFn: ({ pageParam }) => rawgClient.getAll({
+		params: {
+			genres: gameQuery?.genre?.id,
+			platforms: gameQuery?.platform?.id,
+			ordering: gameQuery?.sortOrder,
+			search: gameQuery?.searchGame,
+			page: pageParam
+		}
+	}),
+	getNextPageParam: (lastPage, allPages) => lastPage.next ? allPages.length : undefined
+})
+
+
+
 export default useGamesHook;
