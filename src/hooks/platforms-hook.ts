@@ -16,7 +16,4 @@ const usePlaformsHook = () => useQuery({
 })
 
 
-// const usePlaformsHook = () => useHook<Platform>("/platforms/lists/parents")
-// const usePlaformsHook = () => useHook<Platform>("/platforms/lists/parents")
-// const usePlaformsHook = () => ({ data: platforms, isLoading: true, error: null });
 export default usePlaformsHook;

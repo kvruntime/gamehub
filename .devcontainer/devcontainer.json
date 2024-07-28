@@ -33,6 +33,9 @@
       "theme": "agnoster",
       "plugins": "git docker",
       "desiredLocale": "en_US.UTF-8 UTF-8"
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
     }
     
   },
