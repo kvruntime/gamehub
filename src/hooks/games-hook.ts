@@ -1,8 +1,7 @@
 import { FetchResponse, Game, GameQuery } from '../data';
-import httpClient from '../services/http-client';
 import RawgClient from '../services/rawg-client';
 
-import { QueryFunction, useInfiniteQuery, useQuery } from "@tanstack/react-query"
+import {  useInfiniteQuery } from "@tanstack/react-query"
 
 
 

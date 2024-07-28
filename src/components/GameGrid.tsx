@@ -1,6 +1,4 @@
 import {
-	Text,
-	Button,
 	SimpleGrid,
 	Alert,
 	AlertIcon,

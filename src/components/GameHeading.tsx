@@ -1,7 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { GameQuery } from '../data';
-import useGenresHook from '../hooks/genres-hook';
-import usePlaformsHook from '../hooks/platforms-hook';
 import useGenreHook from '../hooks/genre-hook';
 import usePlaformHook from '../hooks/platform-hook';
 
