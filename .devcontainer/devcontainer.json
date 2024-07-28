@@ -1,0 +1,41 @@
+{
+  "name": "react-app",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.yml"
+  ],
+  "service": "gamehub",
+  "workspaceFolder": "/workspaces/gamehub",
+  "shutdownAction": "none",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "VisualStudioExptTeam.vscodeintellicode",
+        "Zignd.html-css-class-completion",
+        "ms-vscode.vscode-typescript-next",
+        "ecmel.vscode-html-css",
+        "ms-azuretools.vscode-docker",
+        "naumovs.color-highlight",
+        "idered.npm",
+        "christian-kohler.npm-intellisense",
+        "ionutvmi.path-autocomplete",
+        "standard.vscode-standard",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": true,
+      "version": "os-provided"
+    },
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {
+      "setLocale": true,
+      "theme": "agnoster",
+      "plugins": "git docker",
+      "desiredLocale": "en_US.UTF-8 UTF-8"
+    }
+    
+  },
+  "postCreateCommand": "npm i"
+  // "postStartCommand": "nohup /bin/bash -c 'npm run dev &'"
+}

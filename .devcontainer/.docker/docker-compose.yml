@@ -1,0 +1,17 @@
+secrets:
+  api_key:
+    file: ./api_key
+
+services:
+  gamehub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: sleep infinity
+    secrets:
+      - api_key
+    env_file:
+      - VITE_RAWG_KEY=/run/secrets/api_key
+    volumes:
+      - ../../:/workspaces/gamehub
