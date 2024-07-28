@@ -12,11 +12,11 @@ import getCroppedImageUrl from '../services/image-url';
 import { Genre } from '../data';
 
 interface Props {
-	onSelectedGrene: (genre: Genre) => void;
-	selectedGenre: Genre | null;
+	onSelectedGreneId: (genreId: number) => void;
+	selectedGenreId?: number;
 }
 
-export default function GenreList({ onSelectedGrene, selectedGenre }: Props) {
+export default function GenreList({ onSelectedGreneId, selectedGenreId }: Props) {
 	const { data, isloading, error } = useGenresHook();
 	if (error) return null;
 	if (isloading) return <Spinner />;
@@ -35,12 +35,12 @@ export default function GenreList({ onSelectedGrene, selectedGenre }: Props) {
 								objectFit={"cover"}
 							/>
 							<Button
-								fontWeight={selectedGenre?.id === g?.id ? 'bold' : 'normal'}
+								fontWeight={selectedGenreId === g?.id ? 'bold' : 'normal'}
 								variant={'link'}
 								fontSize={'lg'}
 								textAlign={'left'}
 								whiteSpace={"normal"}
-								onClick={() => onSelectedGrene(g)}
+								onClick={() => onSelectedGreneId(g.id)}
 							>
 								{g.name}
 							</Button>

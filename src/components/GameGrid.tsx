@@ -14,22 +14,18 @@ import GameCardSkeleton from './GameCardSkeleton';
 import GameCardBox from './GameCardBox';
 import { GameQuery } from '../data';
 import React from 'react';
-import  InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 interface Props {
 	gameQuery: GameQuery | null;
 }
 
 export default function GameGrid({ gameQuery }: Props) {
-	const {
-		data,
-		error,
-		isLoading,
-		fetchNextPage,
-		isFetchingNextPage,
-		hasNextPage,
-	} = useGamesHook(gameQuery);
+	const { data, error, isLoading, fetchNextPage, hasNextPage } =
+		useGamesHook(gameQuery);
 	const sekeletons = [1, 2, 3, 4, 5];
+	const fetchGameCount =
+		data?.pages.reduce((total, page) => page.results.length + total, 0) || 0;
 
 	if (error)
 		return (
@@ -39,14 +35,14 @@ export default function GameGrid({ gameQuery }: Props) {
 				<AlertDescription>{error.message}</AlertDescription>
 			</Alert>
 		);
-const fetchGameCount = data?.pages.reduce((total, page)=>page.results.length+total, 0)|| 0
+	
 	return (
 		<>
 			<InfiniteScroll
 				dataLength={fetchGameCount}
 				hasMore={!!hasNextPage}
 				next={fetchNextPage}
-				loader={<Spinner/>}
+				loader={<Spinner />}
 			>
 				<SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
 					{isLoading &&
@@ -55,23 +51,19 @@ const fetchGameCount = data?.pages.reduce((total, page)=>page.results.length+tot
 								<GameCardSkeleton key={s} />
 							</GameCardBox>
 						))}
-					{data?.pages && data?.pages?.length > 0 && data?.pages.map((page, index) => (
-						<React.Fragment key={index}>
-							{page.results.map((game) => (
-								<GameCardBox key={game.id}>
-									<GameCard key={game.id} game={game} />
-								</GameCardBox>
-							))}
-						</React.Fragment>
-					))}
-					
+					{data?.pages &&
+						data?.pages?.length > 0 &&
+						data?.pages.map((page, index) => (
+							<React.Fragment key={index}>
+								{page.results.map((game) => (
+									<GameCardBox key={game.id}>
+										<GameCard key={game.id} game={game} />
+									</GameCardBox>
+								))}
+							</React.Fragment>
+						))}
 				</SimpleGrid>
 			</InfiniteScroll>
-			{/* {hasNextPage && (
-				<Button marginY={10} padding={4} onClick={() => fetchNextPage()}>
-					{isFetchingNextPage ? 'Loading...' : 'Load More'}
-				</Button>
-			)} */}
 		</>
 	);
 }

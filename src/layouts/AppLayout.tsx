@@ -33,8 +33,8 @@ export default function AppLayout() {
 				<Show above="lg">
 					<GridItem area={'aside'} padding={5}>
 						<GenreList
-							onSelectedGrene={(genre) => setGameQuery({ ...gameQuery, genre })}
-							selectedGenre={gameQuery?.genre}
+							onSelectedGreneId={(genreId) => setGameQuery({ ...gameQuery, genreId: genreId })}
+							selectedGenreId={gameQuery?.genreId}
 						/>
 					</GridItem>
 				</Show>
