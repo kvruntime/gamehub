@@ -4,17 +4,19 @@ import usePlaformsHook from '../hooks/platforms-hook';
 import { Platform } from '../data';
 
 interface Props {
-	onPlaformSelected: (platform: Platform) => void;
-	selectedPlatform: Platform | null;
+	onPlaformSelectedId: (platformId?:number) => void;
+	selectedPlatformId?: number;
 }
 
 export default function PlatformSelector({
-	onPlaformSelected,
-	selectedPlatform,
+	onPlaformSelectedId,
+	selectedPlatformId,
 }: Props) {
 	// const { data } = usePlaformsHook();
 	const { data } = usePlaformsHook();
-	const plaforms=data?.results
+	const platforms = data?.results
+	const selectedPlatform = platforms.find(p => p.id===selectedPlatformId)
+
 	if (!data) return <span>Plaforms(?)</span>;
 
 	return (
@@ -24,10 +26,10 @@ export default function PlatformSelector({
 					{selectedPlatform?.name || 'Platforms'}
 				</MenuButton>
 				<MenuList>
-					{plaforms?.map((platform) => (
+					{platforms?.map((platform) => (
 						<MenuItem
 							key={platform.id}
-							onClick={() => onPlaformSelected(platform)}
+							onClick={() => onPlaformSelectedId(platform.id)}
 						>
 							{platform.name}
 						</MenuItem>

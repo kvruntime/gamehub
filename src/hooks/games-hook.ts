@@ -47,7 +47,7 @@ const useGamesHook = (gameQuery: GameQuery | null) => useInfiniteQuery<FetchResp
 	queryFn: ({ pageParam }) => rawgClient.getAll({
 		params: {
 			genres: gameQuery?.genreId,
-			platforms: gameQuery?.platform?.id,
+			platforms: gameQuery?.platformId,
 			ordering: gameQuery?.sortOrder,
 			search: gameQuery?.searchGame,
 			page: pageParam

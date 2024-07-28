@@ -44,10 +44,10 @@ export default function AppLayout() {
 						<Flex marginBottom={5}>
 							<Box marginRight={5}>
 								<PlatformSelector
-									onPlaformSelected={(platform) =>
-										setGameQuery({ ...gameQuery, platform })
+									onPlaformSelectedId={(platformId) =>
+										setGameQuery({ ...gameQuery, platformId: platformId })
 									}
-									selectedPlatform={gameQuery?.platform}
+									selectedPlatformId={gameQuery?.platformId}
 								/>
 							</Box>
 							<SortSelector

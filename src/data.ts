@@ -22,7 +22,7 @@ export interface Platform {
 }
 export interface GameQuery {
 	genreId?: number;
-	platform: Platform | null;
+	platformId?: number;
 	sortOrder: string | null;
 	searchGame: string | null;
 }
