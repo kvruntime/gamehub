@@ -8,7 +8,7 @@ interface Props {
 }
 export default function GameAttributes({ game }: Props) {
 	return (
-		<SimpleGrid as="dl" width={"50%"}>
+		<SimpleGrid as="dl" width={"50%"} columns={{base:2, md:4, lg:6}} minChildWidth={"20%"}>
 			<Box>
 				<DefinitionItem term="platforms">
 					{game.parent_platforms?.map(({ platform }) => (

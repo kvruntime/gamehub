@@ -3,21 +3,28 @@ export interface Genre {
 	name: string;
 	image_background: string
 }
+export interface Screenshot {
+	id: number;
+	image: string;
+	hidden: boolean
+	width: number
+	height: number
+}
 export interface Trailer {
 	id: number;
 	name: string;
 	preview: string
-	data: {480:string, max:string}
+	data: { 480: string, max: string }
 }
-export interface Publisher{
+export interface Publisher {
 	id: number
-	name:string
+	name: string
 }
 export interface Game {
 	id: number;
 	name: string;
 	slug: string
-	publishers:Publisher[]
+	publishers: Publisher[]
 	description_raw: string
 	genres: Genre[]
 	background_image: string;
