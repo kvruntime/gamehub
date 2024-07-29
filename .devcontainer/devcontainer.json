@@ -23,6 +23,13 @@
       ]
     }
   },
+  "forwardPorts": [80],
+  "portsAttributes": {
+    "80": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    }
+  },
   "features": {
     "ghcr.io/devcontainers/features/git:1": {
       "ppa": true,

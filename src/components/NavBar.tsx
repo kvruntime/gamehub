@@ -2,10 +2,10 @@ import { Box, HStack, Image, Text } from '@chakra-ui/react';
 import logo from '../assets/logo.png';
 import ColorModeSwitch from './ColorModeSwitch';
 import SearchInput from './SearchInput';
-interface Props {
-	onSearch: (searchText: string) => void;
-}
-export default function NavBar({ onSearch }: Props) {
+// interface Props {
+// 	onSearch: (searchText: string) => void;
+// }
+export default function NavBar() {
 	return (
 		<>
 			<HStack padding={'10px'}>
@@ -13,7 +13,7 @@ export default function NavBar({ onSearch }: Props) {
 					<Image src={logo} boxSize={'60px'} />
 					<Text>GameHub</Text>
 				</Box>
-				<SearchInput onSearch={onSearch} />
+				<SearchInput/>
 				<ColorModeSwitch />
 			</HStack>
 		</>

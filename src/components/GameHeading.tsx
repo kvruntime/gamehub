@@ -1,12 +1,11 @@
 import { Box, Heading } from '@chakra-ui/react';
-import { GameQuery } from '../data';
 import useGenreHook from '../hooks/genre-hook';
 import usePlaformHook from '../hooks/platform-hook';
+import useGameQueryStore from '../store';
 
-interface Props {
-	gameQuery: GameQuery;
-}
-export default function GameHeading({ gameQuery }: Props) {
+
+export default function GameHeading() {
+	const gameQuery=useGameQueryStore(s=>s.gameQuery)
 	const genre = useGenreHook(gameQuery.genreId)
 	const platform = usePlaformHook(gameQuery.platformId)
 

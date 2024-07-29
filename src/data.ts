@@ -23,8 +23,8 @@ export interface Platform {
 export interface GameQuery {
 	genreId?: number;
 	platformId?: number;
-	sortOrder: string | null;
-	searchGame: string | null;
+	sortOrder?: string ;
+	searchGame?: string;
 }
 
 export interface FetchResponse<T> {
