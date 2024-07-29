@@ -8,7 +8,7 @@ interface Props {
 }
 export default function GameAttributes({ game }: Props) {
 	return (
-		<SimpleGrid as="dl" width={"50%"} columns={{base:2, md:4, lg:6}} minChildWidth={"20%"}>
+		<SimpleGrid as="dl" columns={{ base: 2, md: 4 }}>
 			<Box>
 				<DefinitionItem term="platforms">
 					{game.parent_platforms?.map(({ platform }) => (
@@ -30,7 +30,9 @@ export default function GameAttributes({ game }: Props) {
 			</Box>
 			<Box>
 				<DefinitionItem term="publishers">
-					{game.publishers?.map((p)=><Text key={p.id}>{p.name}</Text>)}
+					{game.publishers?.map((p) => (
+						<Text key={p.id}>{p.name}</Text>
+					))}
 				</DefinitionItem>
 			</Box>
 		</SimpleGrid>
