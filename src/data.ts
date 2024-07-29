@@ -7,13 +7,17 @@ export interface Trailer {
 	id: number;
 	name: string;
 	preview: string
-	data: any
+	data: {480:string, max:string}
 }
-
+export interface Publisher{
+	id: number
+	name:string
+}
 export interface Game {
 	id: number;
 	name: string;
 	slug: string
+	publishers:Publisher[]
 	description_raw: string
 	genres: Genre[]
 	background_image: string;

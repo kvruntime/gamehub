@@ -10,7 +10,4 @@ const useGameHook = (slug: string) => useQuery<Game, Error>({
   queryFn: () => rawgClient.get(slug)
 })
 
-
-
-
 export default useGameHook;

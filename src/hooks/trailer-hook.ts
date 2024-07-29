@@ -1,4 +1,4 @@
-import { Game, Trailer } from '../data';
+import { Trailer } from '../data';
 import RawgClient from '../services/rawg-client';
 
 import { useQuery } from "@tanstack/react-query"
