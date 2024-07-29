@@ -9,4 +9,8 @@ export default class RawgClient<T> {
   getAll = (requests?: AxiosRequestConfig) => {
     return httpClient.get<FetchResponse<T>>(this.endpoint, { ...requests }).then(res => res.data)
   }
+
+  get = (id:string) => {
+    return httpClient.get<T>(this.endpoint+"/"+id).then(res=>res.data)
+  }
 }

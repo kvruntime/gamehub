@@ -11,17 +11,13 @@ import useGenresHook from '../hooks/genres-hook';
 import getCroppedImageUrl from '../services/image-url';
 import useGameQueryStore from '../store';
 
-interface Props {
-	// onSelectedGreneId: (genreId: number) => void;
-	selectedGenreId?: number;
-}
 
-export default function GenreList({
-	// onSelectedGreneId,
-	selectedGenreId,
-}: Props) {
+
+export default function GenreList() {
+
 	const { data, isLoading, error } = useGenresHook();
 	const setGenreId=useGameQueryStore(s=>s.setGenreId)
+	const gameQuery=useGameQueryStore(s=>s.gameQuery)
 	if (error) return null;
 	if (isLoading) return <Spinner />;
 
@@ -42,7 +38,7 @@ export default function GenreList({
 								objectFit={'cover'}
 							/>
 							<Button
-								fontWeight={selectedGenreId === g?.id ? 'bold' : 'normal'}
+								fontWeight={gameQuery.genreId === g?.id ? 'bold' : 'normal'}
 								variant={'link'}
 								fontSize={'lg'}
 								textAlign={'left'}

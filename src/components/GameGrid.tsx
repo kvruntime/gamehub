@@ -21,7 +21,7 @@ interface Props {
 export default function GameGrid({ gameQuery }: Props) {
 	const { data, error, isLoading, fetchNextPage, hasNextPage } =
 		useGamesHook(gameQuery);
-	const sekeletons = [1, 2, 3, 4, 5];
+	const sekeletons = [1, 2, 3, 4, 6];
 	const fetchGameCount =
 		data?.pages.reduce((total, page) => page.results.length + total, 0) || 0;
 

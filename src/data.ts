@@ -3,10 +3,19 @@ export interface Genre {
 	name: string;
 	image_background: string
 }
+export interface Trailer {
+	id: number;
+	name: string;
+	preview: string
+	data: any
+}
 
 export interface Game {
 	id: number;
 	name: string;
+	slug: string
+	description_raw: string
+	genres: Genre[]
 	background_image: string;
 	parent_platforms: { platform: Platform }[];
 	metacritic: number;
@@ -23,7 +32,7 @@ export interface Platform {
 export interface GameQuery {
 	genreId?: number;
 	platformId?: number;
-	sortOrder?: string ;
+	sortOrder?: string;
 	searchGame?: string;
 }
 
