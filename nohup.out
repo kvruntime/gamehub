@@ -1,0 +1,24 @@
+
+> ultimate-react-project@0.0.0 dev
+> vite
+
+Re-optimizing dependencies because vite config has changed
+
+  VITE v5.3.3  ready in 2946 ms
+
+  ➜  Local:   http://localhost:80/
+  ➜  Network: http://172.19.0.2:80/
+
+> ultimate-react-project@0.0.0 dev
+> vite
+
+
+  VITE v5.3.3  ready in 1552 ms
+
+  ➜  Local:   http://localhost:80/
+  ➜  Network: http://172.19.0.2:80/
+11:39:12 PM [vite] ✨ new dependencies optimized: @tanstack/react-query, @tanstack/react-query-devtools
+11:39:12 PM [vite] ✨ optimized dependencies changed. reloading
+11:40:24 PM [vite] hmr update /src/components/PlaformSelector.tsx
+11:42:15 PM [vite] hmr update /src/components/PlaformSelector.tsx
+11:42:56 PM [vite] hmr update /src/components/PlaformSelector.tsx

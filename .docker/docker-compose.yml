@@ -1,21 +1,11 @@
 services:
-  gamehub-dev:
-    image: gamehub:dev
-    build:
-      context: ..
-      dockerfile: .docker/Dockerfile
+  gamehub:
+    image: node:22-bullseye-slim
+    restart: unless-stopped
+    command: sleep infinity
     ports:
       - 9090:8080
     env_file:
       - ../.env
-
-  gamehub-prod:
-    image: gamehub:prod
-    build:
-      context: ..
-      dockerfile: .docker/Dockerfile.prod
-      target: prod
-    ports:
-      - 9999:80
-    env_file:
-      - ../.env
+    volumes:
+      - ..:/workspaces/gamehub

@@ -1,19 +1,20 @@
-import { Box, HStack, Image, Text } from '@chakra-ui/react';
+import { HStack, Image, Text } from '@chakra-ui/react';
 import logo from '../assets/logo.png';
 import ColorModeSwitch from './ColorModeSwitch';
 import SearchInput from './SearchInput';
-interface Props {
-	onSearch: (searchText: string) => void;
-}
-export default function NavBar({ onSearch }: Props) {
+import { Link } from 'react-router-dom';
+// interface Props {
+// 	onSearch: (searchText: string) => void;
+// }
+export default function NavBar() {
 	return (
 		<>
 			<HStack padding={'10px'}>
-				<Box >
-					<Image src={logo} boxSize={'60px'} />
+				<Link to={'/'}>
+					<Image src={logo} boxSize={'60px'} objectFit={"cover"} />
 					<Text>GameHub</Text>
-				</Box>
-				<SearchInput onSearch={onSearch} />
+				</Link>
+				<SearchInput />
 				<ColorModeSwitch />
 			</HStack>
 		</>

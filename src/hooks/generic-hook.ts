@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import httpClient from "../services/http-client";
 import { AxiosError, AxiosRequestConfig, CanceledError } from "axios";
+import { FetchResponse } from "../data";
 
 
 
 
-interface FetchResponse<T> {
-  count: number;
-  results: T[];
-}
+
 
 const useHook = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
   const [data, setData] = useState<T[]>([]);
